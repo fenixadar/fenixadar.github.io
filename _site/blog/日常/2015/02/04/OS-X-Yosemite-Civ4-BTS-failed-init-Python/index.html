@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="古典乐死忠、关注当代艺术与科技、理性与感性的工科IT小巨蟹">
+
+    <title>OS X Yosemite Civ4 BTS failed init Python - FenixAdar's Blog</title>
+
+    <link rel="canonical" href="http://fenixadar.github.io/blog/%E6%97%A5%E5%B8%B8/2015/02/04/OS-X-Yosemite-Civ4-BTS-failed-init-Python/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/blog/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/css/googleapis-Lora.css">
+    <link rel="stylesheet" href="/blog/css/googleapis-Open+Sans.css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+         <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://fenixadar.github.io/feed.xml" title="" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">FenixAdar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/blog/">Home</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post/20150204/post-bg.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>OS X Yosemite Civ4 BTS failed init Python</h1>
+                    
+                    <h2 class="subheading">WTF......</h2>
+                    
+                    <span class="meta">Posted by FenixAdar on February 4, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>
+    前些日子把MBP的系统从OS X Mavericks 升级到 OS X Yosemite ，结果来了个下图这错误，果然我是 no zuo no die 啊，让你手贱升级系统啊，老乔走了之后，苹果的质量把关真的是令人担忧你不造吗。。。
+</p>
+
+<p><img src="/blog/img/post/20150204/1.PNG" alt="" /><br /></p>
+
+<p>初步分析了下，很不解的为何是“Failed initializing Python”，OS X 是自带Python库的。</p>
+
+<p>进入 Terminal ，看Python版本，确实是有Python库的。</p>
+
+<p><img src="/blog/img/post/20150204/2.PNG" alt="" /><br /></p>
+
+<p><strong>这！不！科！学！！！</strong>
+于是问google，找到这个。。。<br />
+<a title="http://forums.civfanatics.com/showthread.php?t=530804" target="_blank" href="http://forums.civfanatics.com/showthread.php?t=530804">
+    <strong>How to get Civ4:BTS working on OS X Yosemite</strong>
+</a></p>
+
+<p>When you try to launch BTS (or Warlords or Colonization) on OS X Yosemite, it fails with the message “Failed Initializing Python”. This is because Yosemite drops support for Python 2.3, which is needed by Civ4 and it’s expansions. The solution is to reinstall Python 2.3 on Yosemite. Unfortunately I couldn’t find an OS X version of 2.3 on Python.org, so instead I copied the relevant folders across from Mavericks.</p>
+
+<ul>
+    <li>
+        This fix involves making some additions to folders and frameworks located in OS X's System and Library folders.
+        It shouldn't cause any problems, but <font color="red">please be extremely careful and be sure to have your
+            system backed up before trying this.</font> Just in case.<br />
+    </li>
+    <li>
+        I've included Python 2.3 and 2.5. Both were present in Mavericks but gone from Yosemite. I don't know if both
+        are needed by BTS, but I thought it best to include both just in case.
+        <br />
+    </li>
+    <li>
+        I had to use 7zip to pack the files so they be small enough to host on with my sharing service. If you don't
+        already have a way to unpack 7zip I highly recommend getting 'The Unarchiver' from the MacAppStore. It's free
+        and, in my opinion, an essential Mac utility.
+        <br />
+    </li>
+</ul>
+<p><b>Step 1:</b><br />
+Download the necessary files from <a target="_blank" href="http://cl.ly/WlCo/BTS%20Yosemite%20Python%20Fix.7z">here</a>. Unzip them. You should have a folder called ‘BTS Yosemite Python Fix’.
+<br />
+These are taken direct from my installation of 10.9.4 and you may copy them from Mavericks yourself if you prefer. Locations are described below.</p>
+
+<p><b>Step 2:</b><br />
+Navigate to <font color="RoyalBlue">&lt;Your
+    Drive&gt;/Library/Python/</font>. This is NOT the Library folder in your Home folder. In this location you should see two folders called ‘2.6’ and ‘2.7’.
+<br />
+From the ‘BTS Yosemite Python Fix’ folder, copy the folders ‘2.3’ and ‘2.5’ to this location. You’ll need to enter your administration password to do this.</p>
+
+<p><b>Step 3:</b><br />
+Navigate to <font color="RoyalBlue">&lt;Your
+    Drive&gt;/System/Library/Frameworks/Python.framework/Versions/</font>. There should be 2 folders and 3 aliases here. You need to remove the aliases ‘2.3’ and ‘2.5’.
+<br />
+From the ‘BTS Yosemite Python Fix’, open the ‘Framework’ folder. You should see another ‘2.3’ folder and another ‘2.5’ folder. Copy these to where the aliases used to be. Again, your administration password is required. Don’t copy the ‘Framework’ folder itself.</p>
+
+<p>BTS (and Warlords and Colonization) should now work. Vanilla Civ requires additional steps (see post #8) as it’s blocked by OS X for being too ancient.</p>
+
+<p>8楼有补充<br />
+Just to let you know, after installing the python older frameworks, I still couldn’t run Civ IV with a message of You can’t use this version of the application “Civilization IV” with this version of OSX.
+<br />
+So I opened the application package, navigated to Contents/MacOS and made an alias of the Civilisation IV script. Double clicking this then bypasses the incompatible application list and launches it fine. All good.</p>
+
+<p>这个方法自己尝试了下是ok的，但教程里是让安装2.3版本和2.5版本的Python，这里存疑，因为2.7.9是可以向下兼容的，应该也是没问题的，不过下面一群人“It Works！！！”<br />
+我想，2.7.9应该也是可以的才对，时间太晚了，明天再尝试吧。</p>
+
+<p>Python库下载地址<br />
+<a title="https://www.python.org/downloads/" target="_blank" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+
+<p>算了，明天还是装回 Mavericks 吧。。。</p>
+
+<p>晒张成功进入CIV4 的截图。。。
+<img src="/blog/img/post/20150204/3.PNG" alt="" /><br /></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/%E6%97%A5%E5%B8%B8/2016/01/03/%E6%97%A0%E6%84%8F%E4%B8%AD%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AAiOS%E7%9A%84BUG/" data-toggle="tooltip" data-placement="top" title="无意中发现一个iOS8.1.1的BUG">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+<!-- 多说分享框 start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="ds-share" data-thread-key="/%E6%97%A5%E5%B8%B8/2015/02/04/OS X Yosemite Civ4 BTS failed init Python" data-title="OS X Yosemite Civ4 BTS failed init Python" data-images="" data-content="WTF......" data-url="http://127.0.0.1:4000///%E6%97%A5%E5%B8%B8/2015/02/04/OS-X-Yosemite-Civ4-BTS-failed-init-Python/">
+                <div class="ds-share-inline">
+                    <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+                        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信朋友圈</a></li>
+                        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
+                        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                        <li><a class="ds-renren" href="javascript:void(0);" data-service="renren">人人</a></li>
+                        <!--<<li><a class="ds-sohu" href="javascript:void(0);" data-service="sohu">搜狐微博</a></li>-->
+                        <li><a class="ds-douban" href="javascript:void(0);" data-service="douban">豆瓣网</a></li>
+                        <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
+                        <li><a class="ds-twitter" href="javascript:void(0);" data-service="twitter">Twitter</a></li>
+                        <!--<<li><a class="ds-linkedin" href="javascript:void(0);" data-service="linkedin">Linkedin</a></li>-->
+                        <!--<<li><a class="ds-msn" href="javascript:void(0);" data-service="msn">msn</a></li>-->
+                    </ul>
+                <!--<div class="ds-share-icons-more"></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 多说分享框 end -->
+<hr>
+<!-- 多说评论框 start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="ds-thread" data-thread-key="/%E6%97%A5%E5%B8%B8/2015/02/04/OS X Yosemite Civ4 BTS failed init Python" data-title="OS X Yosemite Civ4 BTS failed init Python" data-url="http://127.0.0.1:4000///%E6%97%A5%E5%B8%B8/2015/02/04/OS-X-Yosemite-Civ4-BTS-failed-init-Python/">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"fenixadarblog"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fenixadar@126.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; FenixAdar 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

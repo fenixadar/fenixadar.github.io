@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="古典乐死忠、关注当代艺术与科技、理性与感性的工科IT小巨蟹">
+
+    <title>无意中发现一个iOS8.1.1的BUG - FenixAdar's Blog</title>
+
+    <link rel="canonical" href="http://fenixadar.github.io/blog/%E6%97%A5%E5%B8%B8/2016/01/03/%E6%97%A0%E6%84%8F%E4%B8%AD%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AAiOS%E7%9A%84BUG/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/blog/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/css/googleapis-Lora.css">
+    <link rel="stylesheet" href="/blog/css/googleapis-Open+Sans.css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+         <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://fenixadar.github.io/feed.xml" title="" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">FenixAdar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/blog/">Home</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post/20160103/post-bg.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>无意中发现一个iOS8.1.1的BUG</h1>
+                    
+                    <h2 class="subheading">iPhone储存空间消失与相册照片数与iTunes显示不一致的问题</h2>
+                    
+                    <span class="meta">Posted by FenixAdar on January 3, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>
+我用的是 国行 iPhone 6 plus 128GB，在使用过程中，感觉自己也没存啥，照片也是尽量传到电脑上后删除，空间却莫名奇妙越来越少，虽有察觉，但也说不出缘由，直到最近，偶然查看iPhone的储存空间用量，发现
+</p>
+<p><img src="/blog/img/post/20160103/01.JPG" alt="" /><br /></p>
+
+<p>单单一个 相片居然占用了足足38个GB，</p>
+
+<p>但是！！！</p>
+
+<p><img src="/blog/img/post/20160103/02.JPG" alt="" /><br /></p>
+
+<p>我的相机胶卷里面只有2000多张照片啊，就算加上将要删除的相片有800多张，也不可能占用这么多空间。。。
+然后又发现iTunes里面，</p>
+
+<p><img src="/blog/img/post/20160103/03.PNG" alt="" /><br /></p>
+
+<p>居然是9400多张照片，远远超出相机胶卷里面的量。。。
+有考虑过是不是安装的app里面的照片也被错误计算在内了，但是也不敢确定就是这个原因。
+查看过iCloud，是关闭备份照片的。。。</p>
+
+<p>还好有人遇到和我一样的情况</p>
+
+<p><img src="/blog/img/post/20160103/04.PNG" alt="" /><br />
+<img src="/blog/img/post/20160103/05.PNG" alt="" /><br /></p>
+
+<p>
+	<a href="https://discussions.apple.com/thread/6861322?start=0&amp;tstart=0" target="_blank">
+		外链：Apple Support Communities - iTunes showing wrong number of photos on iPhone (eating up storage space)
+	</a>
+<br />
+	<a href="http://forums.imore.com/iphone-6/314639-iphone-6-photo-storage-huge-incorrect.html" target="_blank">
+	    外链：iPhone 6 Photo Storage Huge &amp; Incorrect
+	</a>
+</p>
+
+<p>于是尝试下，发现是真的有效。。。</p>
+
+<p>在手动将时间调回以前的时间后，原来本应该删除的照片又莫名奇妙出现了，出现在 最近删除中（虽然显示为0，但是点进去后会显示照片），不是说好了，走完剩余天数后就永久删除吗。。。</p>
+
+<p><img src="/blog/img/post/20160103/06.JPG" alt="" /><br />
+<img src="/blog/img/post/20160103/07.JPG" alt="" /><br /></p>
+
+<p>将时间调整至很久之前，然后统一删除后，消失的空间就回来了</p>
+
+<p><img src="/blog/img/post/20160103/08.PNG" alt="" /><br /></p>
+
+<p>看来这的确是iPhone的一个BUG。。。。。</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/%E6%97%A5%E5%B8%B8/2015/02/04/OS-X-Yosemite-Civ4-BTS-failed-init-Python/" data-toggle="tooltip" data-placement="top" title="OS X Yosemite Civ4 BTS failed init Python">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/%E6%B8%B8%E8%AE%B0/2016/02/22/%E5%8F%B0%E6%B9%BE%E8%87%AA%E5%8A%A98%E6%97%A5%E6%B8%B8%E4%B9%8B%E6%99%AF%E7%82%B9%E7%AF%87/" data-toggle="tooltip" data-placement="top" title="台湾自助8日游之景点篇">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+<!-- 多说分享框 start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="ds-share" data-thread-key="/%E6%97%A5%E5%B8%B8/2016/01/03/无意中发现一个iOS的BUG》" data-title="无意中发现一个iOS8.1.1的BUG" data-images="" data-content="iPhone储存空间消失与相册照片数与iTunes显示不一致的问题" data-url="http://127.0.0.1:4000///%E6%97%A5%E5%B8%B8/2016/01/03/%E6%97%A0%E6%84%8F%E4%B8%AD%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AAiOS%E7%9A%84BUG/">
+                <div class="ds-share-inline">
+                    <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+                        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信朋友圈</a></li>
+                        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
+                        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                        <li><a class="ds-renren" href="javascript:void(0);" data-service="renren">人人</a></li>
+                        <!--<<li><a class="ds-sohu" href="javascript:void(0);" data-service="sohu">搜狐微博</a></li>-->
+                        <li><a class="ds-douban" href="javascript:void(0);" data-service="douban">豆瓣网</a></li>
+                        <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
+                        <li><a class="ds-twitter" href="javascript:void(0);" data-service="twitter">Twitter</a></li>
+                        <!--<<li><a class="ds-linkedin" href="javascript:void(0);" data-service="linkedin">Linkedin</a></li>-->
+                        <!--<<li><a class="ds-msn" href="javascript:void(0);" data-service="msn">msn</a></li>-->
+                    </ul>
+                <!--<div class="ds-share-icons-more"></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 多说分享框 end -->
+<hr>
+<!-- 多说评论框 start -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="ds-thread" data-thread-key="/%E6%97%A5%E5%B8%B8/2016/01/03/无意中发现一个iOS的BUG》" data-title="无意中发现一个iOS8.1.1的BUG" data-url="http://127.0.0.1:4000///%E6%97%A5%E5%B8%B8/2016/01/03/%E6%97%A0%E6%84%8F%E4%B8%AD%E5%8F%91%E7%8E%B0%E4%B8%80%E4%B8%AAiOS%E7%9A%84BUG/">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"fenixadarblog"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fenixadar@126.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; FenixAdar 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
